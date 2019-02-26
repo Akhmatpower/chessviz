@@ -30,5 +30,6 @@ void printdesk()
 
 int main()
 {
+    printdesk();
     return 0;
 }
