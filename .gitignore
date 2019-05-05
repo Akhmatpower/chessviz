@@ -1,2 +1,5 @@
 main
 .DS_Store
+*.o
+.gitkeep
+chessviz
