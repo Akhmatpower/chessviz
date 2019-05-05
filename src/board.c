@@ -66,6 +66,7 @@ int black()
             return 1; //начальный ход
         }
         if ((desk[Y2][X2] == ' ') && (X2 == X1) && (Y1 - Y2 == 1)) {
+            transformPawn();
             return 1; //ход по пустым клеткам
         }
         if ((desk[Y2][X2] < 'S' && desk[Y2][X2] > 'A')
@@ -159,6 +160,7 @@ int white()
             return 1; //начальный ход
         }
         if ((desk[Y2][X2] == ' ') && (X2 == X1) && (Y2 - Y1 == 1)) {
+            transformPawn();
             return 1; //ход по пустым клеткам
         }
         if ((desk[Y2][X2] < 's' && desk[Y2][X2] > 'a')
@@ -311,6 +313,37 @@ void move()
 {
     desk[Y2][X2] = desk[Y1][X1];
     desk[Y1][X1] = ' ';
+}
+
+void transformPawn()
+{
+    char npawn;
+    if ((desk[Y1][X1] == 'p') && (Y2 == 0)) {
+        while (1) {
+            printf("Введите в какую фигуру вревратить:");
+            npawn = getchar();
+            if ((npawn == 'r') || (npawn == 'n') || (npawn == 'b')
+                || (npawn == 'q')) {
+                desk[Y1][X1] = npawn;
+                break;
+            } else {
+                printf("Введите правильную фигуру.\n");
+            }
+        }
+    }
+    if ((desk[Y1][X1] == 'P') && (Y2 == 7)) {
+        while (1) {
+            printf("Введите в какую фигуру вревратить:");
+            npawn = getchar();
+            if ((npawn == 'R') || (npawn == 'N') || (npawn == 'B')
+                || (npawn == 'Q')) {
+                desk[Y1][X1] = npawn;
+                break;
+            } else {
+                printf("Введите правильную фигуру.\n");
+            }
+        }
+    }
 }
 
 int checkWIn(int status)
