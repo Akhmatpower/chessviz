@@ -73,6 +73,18 @@ int black()
             return 1; //рубим чужих
         }
         break;
+    case 'r':
+        if ((input[2] == '-') && (desk[Y2][X2] != ' ')) {
+            printf("Вроде надо рубить?\n");
+            break;
+        }
+        if ((Y2 == Y1) && (checkX())) {
+            return 1;
+        }
+        if ((X2 == X1) && (checkY())) {
+            return 1;
+        }
+        break;
         }
     return 0;
 }
@@ -100,8 +112,58 @@ int white()
             return 1; //рубим чужих
         }
         break;
+    case 'R':
+        if ((input[2] == '-') && (desk[Y2][X2] != ' ')) {
+            printf("Вроде надо рубить?\n");
+            break;
+        }
+        if ((Y2 == Y1) && (checkX())) {
+            return 1;
+        }
+        if ((X2 == X1) && (checkY())) {
+            return 1;
+        }
+        break;
     }
     return 0;
+}
+
+int checkX()
+{
+    int i, c1 = X1, c2 = X2;
+    if (Y1 != Y2) {
+        return 0;
+    }
+    if (X1 > X2) {
+        c1 = X2;
+        c2 = X1;
+    }
+    for (i = c1 + 1; i < c2; i++) {
+        if ((desk[Y1][i] > 'a' && desk[Y1][i] < 's')
+            || (desk[Y1][i] > 'A' && desk[Y1][i] < 'S')) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int checkY()
+{
+    int i, c1 = Y1, c2 = Y2;
+    if (X1 != X2) {
+        return 0;
+    }
+    if (Y1 > Y2) {
+        c1 = Y2;
+        c2 = Y1;
+    }
+    for (i = c1 + 1; i < c2; i++) {
+        if ((desk[i][X1] > 'a' && desk[i][X1] < 's')
+            || (desk[i][X1] > 'A' && desk[i][X1] < 'S')) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 void move()

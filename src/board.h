@@ -7,5 +7,7 @@ int white();
 int black();
 void move();
 int checkWIn(int status);
+int checkY();
+int checkX();
 
 #endif
