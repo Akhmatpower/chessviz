@@ -85,7 +85,7 @@ int black()
             return 1;
         }
         break;
-        case 'n':
+    case 'n':
         if ((input[2] == '-') && (desk[Y2][X2] != ' ')) {
             break;
         }
@@ -141,7 +141,7 @@ int black()
             return 1;
         }
         break;
-        }
+    }
     return 0;
 }
 

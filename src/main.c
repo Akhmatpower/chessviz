@@ -13,14 +13,13 @@ char desk[8][8] = {{'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'},
                    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
                    {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'}};
 
-
 int main()
 {
-	int status = 0;
+    int status = 0;
 
     printdesk();
 
-     while (1) {
+    while (1) {
         printf("Белые (Большие буквы):");
         scanan(1);
         move();
