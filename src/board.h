@@ -9,5 +9,6 @@ void move();
 int checkWIn(int status);
 int checkY();
 int checkX();
+int checkD();
 
 #endif
